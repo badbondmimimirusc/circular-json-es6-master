@@ -4,6 +4,7 @@ function encode (data, replacer, list, seen) {
   if (seenIndex != null) {
     return seenIndex
   }
+  
   var index = list.length
   var proto = Object.prototype.toString.call(data)
   if (proto === '[object Object]') {
@@ -17,6 +18,7 @@ function encode (data, replacer, list, seen) {
       if (replacer) value = replacer.call(data, key, value)
       stored[key] = encode(value, replacer, list, seen)
     }
+    
   } else if (proto === '[object Array]') {
     stored = []
     seen.set(data, index)
@@ -26,9 +28,11 @@ function encode (data, replacer, list, seen) {
       if (replacer) value = replacer.call(data, i, value)
       stored[i] = encode(value, replacer, list, seen)
     }
+    
   } else {
     list.push(data)
   }
+  
   return index
 }
 
@@ -46,6 +50,7 @@ function decode (list, reviver) {
         if (reviver) value = reviver.call(data, key, value)
         data[key] = value
       }
+      
     } else if (proto === '[object Array]') {
       for (j = 0, k = data.length; j < k; j++) {
         value = list[data[j]]
@@ -77,6 +82,7 @@ exports.parse = function parse (data, reviver) {
     decode(list, reviver)
     return list[0]
   }
+  
 }
 
 exports.stringifyStrict = function stringifyStrict (data, replacer, space) {
