@@ -29,52 +29,69 @@ function run(name, fn, dummy) {
 }
 
 console.log('-----------------------------------')
+
 console.log('Object with ' + Object.keys(dummy100[0]).length + ' keys each')
+
 console.log('-----------------------------------')
+
 run('CircularJSON', CircularJSON.stringify, dummy100)
 run('CircularJSON', CircularJSON.parse, r)
 run('CircularJSON', CircularJSON.stringify, dummy50)
 run('CircularJSON', CircularJSON.parse, r)
 run('CircularJSON', CircularJSON.stringify, dummy10)
 run('CircularJSON', CircularJSON.parse, r)
+
 console.log('-----------------------------------')
+
 run('circular-json-es6', cj6.stringify, dummy100)
 run('circular-json-es6', cj6.parse, r)
 run('circular-json-es6', cj6.stringify, dummy50)
 run('circular-json-es6', cj6.parse, r)
 run('circular-json-es6', cj6.stringify, dummy10)
 run('circular-json-es6', cj6.parse, r)
+
 console.log('-----------------------------------')
+
 run('jsan', jsan.stringify, dummy100)
 run('jsan', jsan.parse, r)
 run('jsan', jsan.stringify, dummy50)
 run('jsan', jsan.parse, r)
 run('jsan', jsan.stringify, dummy10)
 run('jsan', jsan.parse, r)
+
 console.log('-----------------------------------')
+
 console.log('50% same objects')
 dummy100 = dummy50.concat(dummy50)
+
 console.log('-----------------------------------')
+
 run('CircularJSON', CircularJSON.stringify, dummy100)
 run('CircularJSON', CircularJSON.parse, r)
 run('circular-json-es6', cj6.stringify, dummy100)
 run('circular-json-es6', cj6.parse, r)
 run('jsan', jsan.stringify, dummy100)
 run('jsan', jsan.parse, r)
+
 console.log('-----------------------------------')
+
 console.log('90% same objects')
 dummy100 = [].concat(
   dummy10, dummy10, dummy10, dummy10, dummy10,
   dummy10, dummy10, dummy10, dummy10, dummy10
 )
+
 console.log('-----------------------------------')
+
 run('CircularJSON', CircularJSON.stringify, dummy100)
 run('CircularJSON', CircularJSON.parse, r)
 run('circular-json-es6', cj6.stringify, dummy100)
 run('circular-json-es6', cj6.parse, r)
 run('jsan', jsan.stringify, dummy100)
 run('jsan', jsan.parse, r)
+
 console.log('-----------------------------------')
+
 console.log('with circular')
 function makeCircularObject () {
   var a = {}
@@ -85,14 +102,18 @@ dummy100 = []
 for (var i = 0; i < 100; i++) {
   dummy100.push(makeCircularObject())
 }
+
 console.log('-----------------------------------')
+
 run('CircularJSON', CircularJSON.stringify, dummy100)
 run('CircularJSON', CircularJSON.parse, r)
 run('circular-json-es6', cj6.stringify, dummy100)
 run('circular-json-es6', cj6.parse, r)
 run('jsan', jsan.stringify, dummy100)
 run('jsan', jsan.parse, r)
+
 console.log('-----------------------------------')
+
 console.log('with circular 90% same')
 function makeCircularObject () {
   var a = {}
@@ -107,7 +128,9 @@ dummy100 = [].concat(
   dummy10, dummy10, dummy10, dummy10, dummy10,
   dummy10, dummy10, dummy10, dummy10, dummy10
 )
+
 console.log('-----------------------------------')
+
 run('CircularJSON', CircularJSON.stringify, dummy100)
 run('CircularJSON', CircularJSON.parse, r)
 run('circular-json-es6', cj6.stringify, dummy100)
