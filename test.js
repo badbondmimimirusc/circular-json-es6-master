@@ -1,3 +1,5 @@
+var c = require('./index')
+
 var assert = require('assert')
 
 describe('circular-json', function () {
