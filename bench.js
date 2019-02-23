@@ -120,10 +120,12 @@ function makeCircularObject () {
   a.b = a
   return a
 }
+
 dummy10 = []
 for (var i = 0; i < 10; i++) {
   dummy10.push(makeCircularObject())
 }
+
 dummy100 = [].concat(
   dummy10, dummy10, dummy10, dummy10, dummy10,
   dummy10, dummy10, dummy10, dummy10, dummy10
